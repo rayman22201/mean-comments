@@ -1,0 +1,20 @@
+<form role="form" name="editCommentForm">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label class="sr-only" for="editCommentName">Name</label>
+        <input type="text" class="form-control input-lg disabled" disabled="disabled" name="editCommentName" id="editCommentName" placeholder="Enter Name" ng-model="comment.author.name">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="sr-only" for="editCommentEmail">Email</label>
+        <input type="email" class="form-control input-lg disabled" disabled="disabled" name="editCommentEmail" id="editCommentEmail" placeholder="Enter Email" ng-model="comment.author.email">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-12">
+        <textarea class="form-control" rows="3" name="editCommentBody" id="editCommentBody" placeholder="Enter Comment" ng-model="comment.body"></textarea>
+      </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-primary btn-lg col-md-offset-10" style="float: right; margin-right: 14px;" ng-click="editComment(comment)">Edit Comment</button>
+    </div>
+</form>

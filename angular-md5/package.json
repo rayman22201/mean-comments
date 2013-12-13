@@ -1,0 +1,33 @@
+{
+  "name": "angular-md5",
+  "version": "0.0.3",
+  "main": "angular-md5.js",
+  "description": "md5 component for Angular.js",
+  "homepage": "https://github.com/gdi2290/angular-md5",
+  "bugs": {
+    "url": "https://github.com/gdi2290/angular-md5/issues"
+  },
+  "author": {
+    "name": "Patrick Stapleton",
+    "email": "patrick@gdi2290.com",
+    "url": "www.gdi2290.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gdi2290/angular-md5.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {},
+  "readme": "# angular-md5 [![Build Status](https://travis-ci.org/gdi2290/angular-md5.png?branch=master)](https://travis-ci.org/gdi2290/angular-md5)\nmd5 for Angular\n\n#How do I add this to my project?\n\nYou can download angular-md5 by:\n\n* (prefered) Using bower and running `bower install angular-md5 --save`\n* Using npm and running `npm install angular-md5 --save`\n* Downloading it manually by clicking [here to download development unminified version](https://raw.github.com/gdi2290/angular-md5/master/angular-md5.js)\n\n\n````html\n<body ng-app=\"YOUR_APP\" ng-controller=\"MainCtrl\">\n  <img src=\"http://www.gravatar.com/avatar/{{ email | gravatar }}\">\n  <input type=\"email\" ng-model=\"email\" placeholder=\"Email Address\">\n  {{ message }}\n</body>\n<script src=\"http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js\"></script>\n<script src=\"app/bower_components/angular-md5/angular-md5.js\"></script>\n<script>\n  angular.module('YOUR_APP', [\n    'angular-md5',\n    'controllers'\n  ]);\n  angular.module('controllers', [])\n    .controller('MainCtrl', ['$scope', 'md5', function($scope, md5) {\n      \n      $scope.$watch('email' ,function() {\n        $scope.message = 'Your email Hash is: ' + md5.createHash($scope.email || '');\n      });\n      \n    }]);\n</script>\n\n````\n",
+  "readmeFilename": "README.md",
+  "_id": "angular-md5@0.0.3",
+  "dist": {
+    "shasum": "562df2aee7fb7de013028183e172c25ee57f2207"
+  },
+  "_from": "angular-md5@",
+  "_resolved": "https://registry.npmjs.org/angular-md5/-/angular-md5-0.0.3.tgz"
+}

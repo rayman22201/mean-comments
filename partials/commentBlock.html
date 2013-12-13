@@ -1,0 +1,62 @@
+<!-- BEGIN PAGECOMMENTS -->
+<hr />
+<div class="pageCommentsContainer animated" ng-controller="commentListController" ng-show="commentsEnabled">
+    <div class="container commentsList">
+        <div class="row">
+            <div class="panel panel-default widget">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span>
+                    <h3 class="panel-title">
+                        Comments</h3>
+                    <span class="label label-info" ng-bind="commentList.length"></span>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <form role="form" name="newCommentForm">
+                                <div class="row">
+                                  <div class="form-group col-md-6">
+                                    <label class="sr-only" for="newCommentName">Name</label>
+                                    <input type="text" class="form-control input-lg" ng-disabled="loggedIn" name="newCommentName" id="newCommentName" placeholder="Enter Name" ng-model="newComment.author.name">
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label class="sr-only" for="newCommentEmail">Email</label>
+                                    <input type="email" class="form-control input-lg " ng-disabled="loggedIn" name="newCommentEmail" id="newCommentEmail" placeholder="Enter Email" ng-model="newComment.author.email">
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="form-group col-md-12">
+                                    <textarea class="form-control" rows="3" name="newCommentBody" id="newCommentBody" placeholder="Enter Comment" ng-model="newComment.body"></textarea>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="btn btn-primary btn-lg col-md-offset-10 addCommentBtn" ng-click="addComment()">Add Comment</button>
+                                </div>
+                            </form>
+                        </li>
+                        <li class="list-group-item dn-fade-down" ng-repeat="comment in commentList" ng-switch on="comment.mode">
+                            <div ng-switch-when="view">
+                                <div ng-include="'comments/partials/commentView.html'"></div>
+                            </div>
+                            <div ng-switch-when="edit">
+                                <div ng-include="'comments/partials/commentEdit.html'"></div>
+                            </div>
+                            <div class="replies" ng-repeat="reply in comment.replies" ng-switch on="reply.mode">
+                                <div ng-switch-when="view">
+                                    <div ng-include="'comments/partials/replyView.html'"></div>
+                                </div>
+                                <div ng-switch-when="edit">
+                                    <div ng-include="'comments/partials/replyEdit.html'"></div>
+                                </div>
+                                <div ng-switch-when="new">
+                                    <div ng-include="'comments/partials/replyNew.html'"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGECOMMENTS -->

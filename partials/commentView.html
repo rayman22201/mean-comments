@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-xs-2 col-md-1">
+        <img ng-src="{{comment.author.avatar}}" class="img-circle img-responsive" alt="author avatar" /></div>
+    <div class="col-xs-10 col-md-11">
+        <div>
+            <a href="#" ng-bind="comment.title"></a>
+            <div class="mic-info">
+                By: <a href="#" ng-bind="comment.author.name"></a> on <span ng-bind="formatDate(comment.postDate)"></span> <span ng-show="comment.editDate"> | edited on <span ng-bind="formatDate(comment.editDate)"></span></span>
+            </div>
+        </div>
+        <div class="comment-text" btf-markdown="comment.body"></div>
+        <div class="action">
+            <button type="button" ng-show="canEdit(comment)" class="btn btn-primary btn-xs" title="Edit" ng-click="toggleEditComment(comment)">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" ng-show="canEdit(comment)" class="btn btn-danger btn-xs" title="Delete" ng-click="deleteComment(comment)">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            <button type="button" class="btn btn-primary btn-xs" title="Reply" ng-click="toggleAddReply(comment)">
+                <span class="glyphicon glyphicon-share"></span>
+            </button>
+        </div>
+    </div>
+</div>
